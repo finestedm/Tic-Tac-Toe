@@ -1,0 +1,21 @@
+grid {
+    display: grid;
+    height: 100vh;
+    gap: .5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+grille {
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+}
+
+.taken {
+    background-color: blue;
+}
