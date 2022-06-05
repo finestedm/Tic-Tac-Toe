@@ -11,16 +11,21 @@ const gameboard = (() => {
         }
     }
 
+    const listOfTakenSquares = [];
 
     const gril = document.querySelectorAll('.grille');
     Array.from(gril).forEach((square) => {
         square.addEventListener('click', () => {
             if ((square.classList.contains('taken')) == 0) {
                 square.classList.add('taken');
+                listOfTakenSquares.push(square);
             }
         });
     });
+    return { listOfTakenSquares }; // this is only for diagnostics ;))
 })();
+
+
 
 
 
