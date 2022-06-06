@@ -16,6 +16,11 @@ grille {
     height: 100%;
 }
 
-.taken {
-    background-color: blue;
+
+.playerOne {
+    background-color: rgb(128, 129, 60);
+}
+
+.playerTwo {
+    background-color: rgb(37, 216, 192);
 }
