@@ -17,10 +17,10 @@ grille {
 }
 
 
-.playerOne {
+.X {
     background-color: rgb(128, 129, 60);
 }
 
-.playerTwo {
+.O {
     background-color: rgb(37, 216, 192);
 }
