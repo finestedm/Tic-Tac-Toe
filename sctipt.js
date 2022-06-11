@@ -1,4 +1,5 @@
-var grid = document.querySelector('container>grid')
+var grid = document.querySelector('container>grid');
+var inputs = document.querySelectorAll('fieldset input');
 
 
 const game = (() => {
@@ -14,14 +15,26 @@ const game = (() => {
         return { addSquareToCurrentPlayer, getListOfTakenSquaresByPlayer, getName, getSymbol }
     }
 
+    inputs.forEach((input) => {
+        input.addEventListener('click', () => {
+            playerOne.name = inputs[0].value;
+            console.log(playerOne.name);
+            enableGame();           // enebled game only after symbol has bee chosen
+        })
+    });
 
+    const enableGame = function () {        // enables buttons on grid 
+        console.log(gril)
+        Array.from(gril).forEach((square) => {
+            square.disabled = false;
+            console.log(square)
+        })
+    }
 
     const playerOne = Player('Default', "X"); // name & symbol should be selectable at the beginning of each game.
     const playerTwo = Player('Andrzej', "O"); // name & symbol should be selectable at the beginning of each game.
     let activePlayer = playerOne;
 
-    playerOne.name = window.prompt("Please enter your name", "PlayerOne");  // this somehow works by overriding the name inside closed Player scope. Or is it?... 
-    playerOne.symbol = window.prompt("Please enter your symbol", "X");
 
     // function Player(name, symbol) {   // same results but with object constructor 
     //     this.name = name;
@@ -35,8 +48,9 @@ const game = (() => {
 
     const gameboard = (() => {
         for (let i = 1; i <= 9; i++) {  // this creates an array of 3x3 with dataset of 1-9
-            let grille = document.createElement('grille');
+            let grille = document.createElement('button');
             grille.setAttribute('class', 'grille')
+            grille.disabled = true;
             grille.dataset.location = i;
             grid.append(grille);
         }

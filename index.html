@@ -10,6 +10,23 @@
 </head>
 <body>
     <container>
+        <fieldset class="choose-symbol">
+            <input type="text" name="player-one-name" id="player-one-name" placeholder="default name">
+            <legend>Player One, select your name & symbol for the game</legend>
+            <div>
+                <input type="radio" name="symbol" id="X" value="X">
+                <label for="X">X</label>
+            </div>
+            <div>
+                <input type="radio" name="symbol" id="O" value="O">
+                <label for="O">O</label>
+            </div>
+            <div>
+                <input type="radio" name="symbol" id="!" value="!">
+                <label for="!">!</label>
+            </div>
+
+        </fieldset>
         <grid></grid>
     </container>
 </body>
