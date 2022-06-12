@@ -19,6 +19,10 @@ container {
     gap: 1rem;
 }
 
+.choose-symbol input:first-child {
+    padding: 1rem;
+}
+
 .choose-symbol input[type="radio"] {
     display: none;
 }
@@ -32,32 +36,24 @@ container {
     font-size: 1em;
     cursor: pointer;
     position: relative;
-
+    transition: all .5s ease;
 }
 
-.choose-symbol label::after {
-    content: '';
-    background-color: rgba(0, 136, 255, 0.26);
-    opacity: 0;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transition: all .2s ease;
+.choose-symbol #X+label {
+    background-color: aqua;
 }
 
-.choose-symbol label:hover::after {
-    opacity: 1;
+.choose-symbol #O+label {
+    background-color: rgb(47, 0, 255);
 }
 
-.choose-symbol label:checked {
-    background-color: rgba(0, 136, 255, 0.562);
+.choose-symbol #U+label {
+    background-color: rgb(255, 0, 140);
 }
 
 .choose-symbol input[type="radio"]:checked+label {
-    background-color: #bfb;
-    border-color: #4c4;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.452);
+    scale: 1.02;
 }
 
 grid {
@@ -75,13 +71,14 @@ grid {
 }
 
 .grille {
+    border: none;
     background-color: aliceblue;
     height: 100%;
     width: 100%;
     position: relative;
 }
 
-.grille::after {
+.enabled::after {
     content: '';
     background-color: rgba(0, 136, 255, 0.26);
     opacity: 0;
@@ -94,15 +91,46 @@ grid {
 
 }
 
-.grille:hover::after {
+.enabled:hover::after {
     opacity: 1;
 }
 
 
 .X {
     background-color: rgb(128, 129, 60);
+    position: relative;
+}
+
+.X::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: 'X';
+    opacity: 1;
 }
 
 .O {
     background-color: rgb(37, 216, 192);
+    position: relative;
+}
+
+.O::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: 'O';
+    opacity: 1;
+}
+
+.U {
+    background-color: rgb(213, 216, 37);
+    position: relative;
+}
+
+.U::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: 'U';
+    opacity: 1;
 }
