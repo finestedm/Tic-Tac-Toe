@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
+
 :root {
     font-family: 'Readex Pro', 'Arial', sans-serif;
     font-size: clamp(1.1rem, 1.8vw, 1.5rem);
@@ -5,9 +7,9 @@
 }
 
 :root {
-    --base-color: #fff;
+    --base-color: #f1f3f7;
     --text-color: #3b3f44;
-    --supp-color: #4C5760;
+    --supp-color: #fffffe;
     --acce-color: #EEC643;
     --acc2-color: #2FBF71;
     --acc3-color: #6290C3;
@@ -18,6 +20,13 @@
 body {
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--base-color);
+
 }
 
 container {
@@ -27,7 +36,7 @@ container {
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    background-color: #f0f8ff;
+    background-color: var(--base-color);
 
 }
 
@@ -40,6 +49,8 @@ container {
     border: none;
     border-radius: 2rem;
     background-color: var(--supp-color);
+    box-shadow: 0 0 100px hsla(0, 0%, 0%, 0.1);
+
 }
 
 .choose-symbol>legend {
@@ -50,7 +61,7 @@ container {
 
 .choose-symbol input:first-child {
     padding: 1rem;
-    border: none;
+    border: 1px solid hsla(0, 0%, 0%, 0.1);
     border-radius: 1rem;
     font-size: 1.25rem;
 
@@ -106,15 +117,20 @@ grid {
     justify-items: center;
     align-items: center;
     align-content: center;
+    padding: 2rem;
+    background-color: var(--supp-color);
+    border-radius: 2rem;
+    box-shadow: 0 0 100px hsla(0, 0%, 0%, 0.1);
+    opacity: 1;
 }
 
 .grille {
     border: none;
-    background-color: var(--supp-color);
+    background-color: var(--base-color);
     height: 100%;
     width: 100%;
     position: relative;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 
 .enabled::after {
@@ -126,7 +142,7 @@ grid {
     top: 0;
     left: 0;
     transition: all .2s ease;
-    border-radius: 2rem;
+    border-radius: 1rem;
     ;
 }
 
@@ -162,4 +178,28 @@ grid {
     left: 0;
     content: url(./circle.svg);
     opacity: 1;
+}
+
+.winner {
+    opacity: 0;
+    position: absolute;
+    padding: 2rem;
+    background-color: var(--supp-color);
+    font-size: 3rem;
+    font-weight: 500;
+    box-shadow: 0 0 800px hsla(0, 0%, 0%, 0.3);
+    border-radius: 2rem;
+    z-index: -1;
+
+}
+
+.winner.visable {
+    opacity: 1;
+    z-index: 1;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
