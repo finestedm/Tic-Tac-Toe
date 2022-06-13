@@ -32,20 +32,20 @@ body {
 container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
     background-color: var(--base-color);
-
+    width: min(100%, 500px);
 }
 
 .choose-symbol {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1.5rem;
-    padding: 2rem;
+    padding: 40px;
     border: none;
     border-radius: 2rem;
     background-color: var(--supp-color);
@@ -64,6 +64,7 @@ container {
     border: 1px solid hsla(0, 0%, 0%, 0.1);
     border-radius: 1rem;
     font-size: 1.25rem;
+    flex: 1 1 100%;
 
 }
 
@@ -106,8 +107,9 @@ container {
 }
 
 grid {
+    box-sizing: border-box;
     flex: 0 1 500px;
-    width: 500px;
+    width: 100%;
     height: min(100vh, 500px);
     display: grid;
     gap: 1rem;
@@ -117,7 +119,7 @@ grid {
     justify-items: center;
     align-items: center;
     align-content: center;
-    padding: 2rem;
+    padding: 40px;
     background-color: var(--supp-color);
     border-radius: 2rem;
     box-shadow: 0 0 100px hsla(0, 0%, 0%, 0.1);
@@ -165,6 +167,8 @@ grid {
     left: 0;
     content: url(./Remove_font_awesome.svg);
     opacity: 1;
+    text-justify: 50%;
+
 }
 
 .O {
