@@ -1,3 +1,20 @@
+:root {
+    font-family: 'Readex Pro', 'Arial', sans-serif;
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    box-sizing: content-box;
+}
+
+:root {
+    --base-color: #fff;
+    --text-color: #3b3f44;
+    --supp-color: #4C5760;
+    --acce-color: #EEC643;
+    --acc2-color: #2FBF71;
+    --acc3-color: #6290C3;
+
+    font-weight: 300;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -10,17 +27,33 @@ container {
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    background-color: #f0f8ff;
+
 }
 
 .choose-symbol {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--supp-color);
 }
+
+.choose-symbol>legend {
+    display: none;
+}
+
+
 
 .choose-symbol input:first-child {
     padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+
 }
 
 .choose-symbol input[type="radio"] {
@@ -31,28 +64,33 @@ container {
     display: block;
     text-align: center;
     width: 5rem;
-    border: 1px solid #000;
     line-height: 500%;
     font-size: 1em;
     cursor: pointer;
     position: relative;
-    transition: all .5s ease;
+    transition: all .3s ease;
+    border: none;
+    border-radius: 1rem;
 }
 
 .choose-symbol #X+label {
-    background-color: aqua;
+    background-color: var(--acce-color);
+    background-image: url(./Remove_font_awesome.svg);
+    color: rgba(255, 255, 255, 0)
 }
 
 .choose-symbol #O+label {
-    background-color: rgb(47, 0, 255);
+    background-color: var(--acc2-color);
+    background-image: url(./circle.svg);
+    color: rgba(255, 255, 255, 0)
 }
 
 .choose-symbol #U+label {
-    background-color: rgb(255, 0, 140);
+    background-color: var(--acc3-color);
 }
 
 .choose-symbol input[type="radio"]:checked+label {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.452);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     scale: 1.02;
 }
 
@@ -61,7 +99,7 @@ grid {
     width: 500px;
     height: min(100vh, 500px);
     display: grid;
-    gap: .5rem;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     justify-content: center;
@@ -72,15 +110,15 @@ grid {
 
 .grille {
     border: none;
-    background-color: aliceblue;
+    background-color: var(--supp-color);
     height: 100%;
     width: 100%;
     position: relative;
+    border-radius: 2rem;
 }
 
 .enabled::after {
     content: '';
-    background-color: rgba(0, 136, 255, 0.26);
     opacity: 0;
     position: absolute;
     height: 100%;
@@ -88,16 +126,20 @@ grid {
     top: 0;
     left: 0;
     transition: all .2s ease;
-
+    border-radius: 2rem;
+    ;
 }
 
+
 .enabled:hover::after {
+    background-color: hsla(0, 0%, 100%, 0.5);
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
     opacity: 1;
 }
 
 
 .X {
-    background-color: rgb(128, 129, 60);
+    background-color: var(--acce-color);
     position: relative;
 }
 
@@ -105,12 +147,12 @@ grid {
     position: absolute;
     top: 0;
     left: 0;
-    content: 'X';
+    content: url(./Remove_font_awesome.svg);
     opacity: 1;
 }
 
 .O {
-    background-color: rgb(37, 216, 192);
+    background-color: var(--acc2-color);
     position: relative;
 }
 
@@ -118,19 +160,6 @@ grid {
     position: absolute;
     top: 0;
     left: 0;
-    content: 'O';
-    opacity: 1;
-}
-
-.U {
-    background-color: rgb(213, 216, 37);
-    position: relative;
-}
-
-.U::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: 'U';
+    content: url(./circle.svg);
     opacity: 1;
 }

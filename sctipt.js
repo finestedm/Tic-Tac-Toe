@@ -17,7 +17,7 @@ const game = (() => {
         input.addEventListener('click', () => {
             playerOne.name = inputs[0].value;
             playerOne.symbol = input.value;
-
+            (playerOne.symbol == 'X') ? playerTwo.symbol = 'O' : playerTwo.symbol = 'X';
             enableGame();           // enebled game only after symbol has bee chosen
         })
     });
@@ -62,7 +62,8 @@ const game = (() => {
         [2, 5, 8],
         [3, 6, 9],
         [1, 5, 9],
-        [3, 5, 7]];
+        [3, 5, 7]
+    ];
 
     const checkIfWon = (activePlayer) => {
         console.log(activePlayer.getListOfTakenSquaresByPlayer());
