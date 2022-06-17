@@ -10,7 +10,7 @@
     --base-color: #f1f3f7;
     --text-color: #3b3f44;
     --supp-color: #fffffe;
-    --acce-color: #EEC643;
+    --acce-color: #7143ee;
     --acc2-color: #2FBF71;
     --acc3-color: #6290C3;
 
@@ -26,6 +26,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: var(--base-color);
+    overflow-x: hidden;
 
 }
 
@@ -50,7 +51,12 @@ container {
     border-radius: 2rem;
     background-color: var(--supp-color);
     box-shadow: 0 0 100px hsla(0, 0%, 0%, 0.1);
+    box-sizing: border-box;
+    transition: all 1s ease;
+}
 
+.in-transition {
+    transform: translateX(100vw);
 }
 
 .choose-symbol>legend {
@@ -60,12 +66,13 @@ container {
 
 
 .choose-symbol input:first-child {
-    padding: 1rem;
+    padding: 1rem 0;
     border: 1px solid hsla(0, 0%, 0%, 0.1);
     border-radius: 1rem;
     font-size: 1.25rem;
-    flex: 1 1 100%;
-
+    flex: 1 1 80%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .choose-symbol input[type="radio"] {
@@ -97,12 +104,13 @@ container {
     color: rgba(255, 255, 255, 0)
 }
 
-.choose-symbol #U+label {
-    background-color: var(--acc3-color);
+.choose-symbol #X+label:hover {
+    box-shadow: 0 0 1rem var(--acce-color);
+    scale: 1.02;
 }
 
-.choose-symbol input[type="radio"]:checked+label {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+.choose-symbol #O+label:hover {
+    box-shadow: 0 0 1rem var(--acc2-color);
     scale: 1.02;
 }
 
@@ -191,7 +199,7 @@ grid {
     background-color: var(--supp-color);
     font-size: 3rem;
     font-weight: 500;
-    box-shadow: 0 0 800px hsla(0, 0%, 0%, 0.3);
+    box-shadow: 0 0 800px 250px hsla(0, 0%, 0%, 0.3);
     border-radius: 2rem;
     z-index: -1;
 

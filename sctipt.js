@@ -2,6 +2,7 @@ var grid = document.querySelector('container>grid');
 var inputs = document.querySelectorAll('fieldset input');
 var buttonInput = document.querySelectorAll(`fieldset input[type='radio']`);
 var winnerPanel = document.querySelector('.winner');
+var fieldset = document.querySelector('fieldset');
 
 const game = (() => {
 
@@ -19,8 +20,11 @@ const game = (() => {
             playerOne.name = inputs[0].value;
             playerOne.symbol = input.value;
             (playerOne.symbol == 'X') ? playerTwo.symbol = 'O' : playerTwo.symbol = 'X';
-            (document.querySelector('fieldset')).remove();
             enableGame();           // enebled game only after symbol has bee chosen
+            fieldset.classList.add('in-transition');
+            fieldset.addEventListener("transitionend", () => {
+                fieldset.remove();
+            })
         })
     });
 
@@ -56,6 +60,7 @@ const game = (() => {
         }
     })();
 
+
     const wins = [
         [1, 2, 3],
         [4, 5, 6],
@@ -79,9 +84,9 @@ const game = (() => {
                     startConfetti();
                 }
             }
+
         }
     }
-
 
     const gril = document.querySelectorAll('.grille');
     Array.from(gril).forEach((square) => {
